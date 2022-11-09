@@ -1,13 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-    <h2>Hello World !!!</h2>
-    <script src="/app.js"></script>
-</body>
+  </head>
+  <body class="body">
+    <div class="wrapper">
+      <h1>Create User</h1>
+      <form action="/auth" method="post" class="form">
+        <div class="wrapper-input">
+          <label for="nickname">nickname</label>
+          <input type="text" id="nickname" name="nickname" class="input-form name" />
+        </div>
+  
+        <div class="wrapper-input">
+          <label for="email">email</label>
+          <input type="text" id="email" name="email" class="input-form email" />
+        </div>
+
+        <div class="wrapper-input">
+          <label for="password">password</label>
+          <input type="text" id="password" name="password" class="input-form password" />
+        </div>
+  
+        <div class="wrapper-input">
+          <label for="avatar">avatar</label>
+          <input type="text" id="avatar" name="avatar" class="input-form avatar" />
+        </div>
+          <button class="btn">add user</button>
+      </form>
+    </div>
+
+    <div class="wrapper">
+      <h1>Login User</h1>
+      <form action="/auth/login" method="post" class="form">
+        <div class="wrapper-input">
+          <label for="nickname">nickname</label>
+          <input type="text" id="nickname" name="nickname" class="input-form name" />
+        </div>
+
+        <div class="wrapper-input">
+          <label for="password">password</label>
+          <input type="text" id="password" name="password" class="input-form password" />
+        </div>
+
+        <button class="btn">Login</button>
+      </form>
+    </div>
+
+    <div class="wrapper">
+      <h1>Create News</h1>
+      <form action="/add/news" method="post" class="form">
+        <div class="wrapper-inform">
+          <h3>введите фото новости</h3>
+
+          <div class="wrapper-input">
+            <label for="big">img-big</label>
+            <input type="text" id="big" name="big" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="small">img-small</label>
+            <input type="text" id="small" name="small" class="input-form avatar" />
+          </div>
+
+        </div>
+
+        <div class="wrapper-inform">
+          <h3>введите данные статистики</h3>
+          
+          <div class="wrapper-input">
+            <label for="date">дата публикации</label>
+            <input type="text" id="date" name="date" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="view">количество просмотров</label>
+            <input type="text" id="view" name="view" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="coments">количество коментариев</label>
+            <input type="text" id="coments" name="coments" class="input-form avatar" />
+          </div>
+
+        </div>
+        
+        <div class="wrapper-input">
+          <h3>введите title</h3> 
+          <label for="title">заголовок</label>
+          <input type="text" id="title" name="title" class="input-form avatar" />
+        </div>
+        
+        <div class="wrapper-inform">
+          <h3>введите текст самой новости</h3>
+          
+          <div class="wrapper-input">
+            <label for="mainText">описание новости</label>
+            <input type="text" id="mainText" name="mainText" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="photo">введите ссылку на фото</label>
+            <input type="text" id="photo" name="photo" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="subText">тест после фото</label>
+            <input type="text" id="subText" name="subText" class="input-form avatar" />
+          </div>
+
+        </div>
+
+        <button class="btn">add news</button>
+      </form>
+      
+
+    </div>
+    
+    <div class="wrapper">
+      <h1>Create Game</h1>
+      <form action="/add/game" method="post" class="form">
+        <div class="wrapper-inform">
+          <h3>введите фото Game</h3>
+
+          <div class="wrapper-input">
+            <label for="big">img-big</label>
+            <input type="text" id="big" name="big" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="average">img-average</label>
+            <input type="text" id="average" name="average" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="small">img-small</label>
+            <input type="text" id="small" name="small" class="input-form avatar" />
+          </div>
+
+        </div>
+
+        <div class="wrapper-input">
+          <h3>введите title</h3> 
+          <label for="title">заголовок</label>
+          <input type="text" id="title" name="title" class="input-form avatar" />
+        </div>
+
+        <div class="wrapper-inform">
+          <h3>введите данные о категории, впишите true или false, в зависимости от категории</h3>
+          
+          <div class="wrapper-input">
+            <label for="new"> new</label>
+            <input type="text" id="new" name="new" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="hit">hit</label>
+            <input type="text" id="hit" name="hit" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="popular">popular</label>
+            <input type="text" id="popular" name="popular" class="input-form avatar" />
+          </div>
+
+        </div>
+
+        <div class="wrapper-inform">
+          <h3>введите данные о стоимости игры</h3>
+          
+          <div class="wrapper-input">
+            <label for="priceOld"> priceOld</label>
+            <input type="text" id="priceOld" name="priceOld" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="priceNow">priceNow</label>
+            <input type="text" id="priceNow" name="priceNow" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="discount">discount</label>
+            <input type="text" id="discount" name="discount" class="input-form avatar" />
+          </div>
+
+        </div>
+
+        <div class="wrapper-inform">
+          <h3>введите данные mainPoints</h3>
+          
+          <div class="wrapper-input">
+            <label for="genre">genre</label>
+            <input type="text" id="genre" name="genre" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="activationM">activation</label>
+            <input type="text" id="activationM" name="activationM" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="releaseDate">releaseDate</label>
+            <input type="text" id="releaseDate" name="releaseDate" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="publisher">publisher</label>
+            <input type="text" id="publisher" name="publisher" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="developer">developer</label>
+            <input type="text" id="developer" name="developer" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="region">region</label>
+            <input type="text" id="region" name="region" class="input-form avatar" />
+          </div>
+        </div>
+        
+        <div class="wrapper-inform">
+          <h3>введите описание</h3>
+          
+          <div class="wrapper-input">
+            <label for="discription">discription</label>
+            <input type="text" id="discription" name="discription" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="systemRequirements">systemRequirements</label>
+            <input type="text" id="systemRequirements" name="systemRequirements" class="input-form avatar" />
+          </div>
+          <div class="wrapper-input">
+            <label for="activationD">activation</label>
+            <input type="text" id="activationD" name="activationD" class="input-form avatar" />
+          </div>
+
+        </div>
+
+        <div class="wrapper-input">
+          <h3>введите photo, ссылки указать через запятую</h3> 
+          <label for="photo">photo</label>
+          <input type="text" id="photo" name="photo" class="input-form avatar" />
+        </div>  
+
+        <button class="btn">add news</button>
+      </form>
+      
+
+    </div>
+
+    <script src="index.js"></script>
+  </body>
 </html>
