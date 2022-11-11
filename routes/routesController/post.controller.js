@@ -32,6 +32,7 @@ class AddInfo {
         new: req.body.new,
         hit: req.body.hit,
         popular: req.body.popular,
+        preview: req.body.preview,
       },
     
       price: {

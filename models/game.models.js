@@ -20,7 +20,8 @@ const game = new Schema({
   category:{
     new: Boolean,
     hit: Boolean,
-    popular: Boolean
+    popular: Boolean,
+    preview: Boolean
   },
 
   price: {
