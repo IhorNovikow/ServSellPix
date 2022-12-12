@@ -14,7 +14,8 @@ class GetInfo {
 
   async getGame(req, res) {
     try {
-      const game = await Game.find();
+      let game = await Game.find();
+      console.log(game)
       res.json(game);
     } catch (e) {
       console.log(e);

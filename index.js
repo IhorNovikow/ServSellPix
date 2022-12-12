@@ -19,7 +19,7 @@ const store = new MongoStore({
 const API = "https://data.mongodb-api.com/app/data-kyipt/endpoint/data/v1";
 
 const app = express();
-const PORT = process.env.PORT || 4200;
+const PORT = process.env.PORT || 3000;
 
 async function start() {
   //const password = "DCfibg1W3aogbte9";

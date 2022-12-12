@@ -59,7 +59,8 @@ class AddInfo {
       reviews:[{}]
     })
     try {
-      await game.save()
+      await game.save(game)
+      console.log(game)
       res.redirect('/')
       } catch (e) {
           console.log(e)
