@@ -54,7 +54,8 @@ const game = new Schema({
   },
 
   photo: [String],
-  reviews:[{
+  reviews: [
+    {
     date: {
       type: Date,
       required: false,
@@ -68,7 +69,8 @@ const game = new Schema({
       ref: 'User',
       required: false,
     }
-  }]
+  }
+]
 });
 
 module.exports = model("Game", game);

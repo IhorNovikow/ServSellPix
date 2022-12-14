@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 const path = require("path");
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -19,7 +20,7 @@ const store = new MongoStore({
 const API = "https://data.mongodb-api.com/app/data-kyipt/endpoint/data/v1";
 
 const app = express();
-const PORT = process.env.PORT || 4200;
+const PORT = process.env.PORT || 3000;
 
 async function start() {
   //const password = "DCfibg1W3aogbte9";
@@ -33,6 +34,7 @@ async function start() {
     console.log(e);
   }
 }
+app.use(helmet());
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true}))
