@@ -34,7 +34,11 @@ async function start() {
     console.log(e);
   }
 }
-app.use(helmet());
+app.use(
+  helmet({
+    'Access-Control-Allow-Origin': { policy: "Origin" },
+  })
+);
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true}))
