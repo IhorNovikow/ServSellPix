@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 const path = require("path");
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -33,6 +34,7 @@ async function start() {
     console.log(e);
   }
 }
+app.use(helmet());
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true}))
