@@ -25,7 +25,7 @@ const Game = new Schema({
   },
 
   price: {
-    discount: {
+    priceNow: {
       type: Number,
       default: 0
     },
