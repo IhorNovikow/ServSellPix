@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const game = new Schema({
+const Game = new Schema({
   img: {
     big: {
       type: String,
@@ -10,32 +10,28 @@ const game = new Schema({
       type: String,
       required: true,
     },
-    small: {
-      type: String,
-      required: true,
-    },
   },
-
-  title: String,
+  digiSellerID: String,
+  title: {
+    type: String,
+    default: ''
+  },
   category:{
     new: Boolean,
     hit: Boolean,
     popular: Boolean,
-    preview: Boolean
+    preview: Boolean,
+    secondBaner: Boolean
   },
 
   price: {
-    priceOld: {
-      type: Number,
-      required: true,
-    },
-    priceNow: {
-      type: Number,
-      required: true,
-    },
     discount: {
       type: Number,
       default: 0
+    },
+    discount: {
+      required: true,
+      type: Number,
     },
 
   },
@@ -48,30 +44,17 @@ const game = new Schema({
     region: String,
   },
   discription: {
-    discription: String,
+    discription: {
+      type: String,
+      default: ''
+    },
     systemRequirements: String,
     activation: String
   },
 
   photo: [String],
-  reviews: [
-    {
-    date: {
-      type: Date,
-      required: false,
-    },
-    text: {
-      type: String,
-      required: false,
-    },
-    userid: {
-      type: Schema.Types.ObjectId,
-      ref: 'User',
-      required: false,
-    }
-  }
-]
+  linkSell: String,
 });
 
-module.exports = model("Game", game);
+module.exports = model("Game", Game);
 
