@@ -1,5 +1,6 @@
 const express = require("express");
 const helmet = require("helmet");
+const cors = require('cors');
 const path = require("path");
 const mongoose = require("mongoose");
 const session = require("express-session");
@@ -22,6 +23,12 @@ const API = "https://data.mongodb-api.com/app/data-kyipt/endpoint/data/v1";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+const corsOptions = {
+	origin: '*',
+	credentials: true, //access-control-allow-credentials:true
+	optionSuccessStatus: 200,
+};
+
 async function start() {
   //const password = "DCfibg1W3aogbte9";
   //const password = 'admin123456789'
@@ -29,16 +36,14 @@ async function start() {
     await mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
+      console.log(`http://localhost:${PORT}`);
     });
   } catch (e) {
     console.log(e);
   }
 }
-app.use(
-  helmet({
-    'Access-Control-Allow-Origin': { policy: "Origin" },
-  })
-);
+app.use(helmet());
+app.use(cors(corsOptions));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true}))

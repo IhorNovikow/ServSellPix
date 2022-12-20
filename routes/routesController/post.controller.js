@@ -1,6 +1,7 @@
 const User = require("../../models/user.models");
 const Game = require("../../models/game.models");
 const News = require("../../models/news.models");
+const GameID = require("../../models/gameID.models");
 
 
 class AddInfo {
@@ -18,29 +19,23 @@ class AddInfo {
       console.log(e);
     }
   };
+
   async addGame(req, res) {
-    console.log(req.body)
     const game = new Game({
       img: {
         big: req.body.big,
         average: req.body.average,
-        small: req.body.small,
       },
-    
-      title: req.body.title,
+      digiSellerID: req.body.nameID,
       category:{
         new: req.body.new,
         hit: req.body.hit,
         popular: req.body.popular,
         preview: req.body.preview,
+        secondBaner: req.body.secondBaner,
       },
     
-      price: {
-        priceOld: req.body.priceOld,
-        priceNow: req.body.priceNow,
-        discount: req.body.discount,
-    
-      },
+      price: {discount: req.body.discount,},
       mainPoints: {
         genre: req.body.discount,
         activation: req.body.activationM,
@@ -50,22 +45,26 @@ class AddInfo {
         region: req.body.region,
       },
       discription: {
-        discription: req.body.discription,
         systemRequirements: req.body.systemRequirements,
         activation: req.body.activationD,
       },
-    
       photo: req.body.photo.split(','),
-      reviews:[{}]
+      linkSell: req.body.linkSell,
     })
+    const servgameID = await GameID.find();
+    const someID = await GameID.updateOne({'_id': '639b4dab4524b767ddce30ac'}, {$push: {'name': req.body.nameID}})
+
     try {
-      await game.save(game)
-      console.log(game)
-      res.redirect('/')
+      await game.save()
+      //res.json(req.body);
+      res.redirect('/')  
+
       } catch (e) {
           console.log(e)
       }
   };
+
+
   async addNews(req, res) {
     const news = new News({
       img: {
@@ -86,10 +85,10 @@ class AddInfo {
     });
   try {
     await news.save()
-    res.redirect('/')  
-  } catch (e) {
-    console.log(e);
-  }
+      res.redirect('/')  
+    } catch (e) {
+        console.log(e);
+    }
   }
 }
 
